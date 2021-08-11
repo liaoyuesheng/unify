@@ -1,0 +1,160 @@
+@import "../common-style/common";
+
+.u-date-editor {
+  position: relative;
+  width: 220px;
+  display: inline-block;
+  background-color: white;
+}
+
+.u-date-editor-icon {
+  position: absolute;
+  z-index: 0;
+  left: 10px;
+  top: 50%;
+  margin-top: -8px;
+  font-size: 16px;
+  color: $color-border;
+}
+
+.u-date-input {
+  appearance: none;
+  position: relative;
+  width: 100%;
+  line-height: 30px;
+  padding: 0 0 0 36px;
+  background-color: transparent;
+  border: solid 1px $color-border;
+  border-radius: 4px;
+  color: $color-text;
+  transition: $transition-base;
+
+  &::placeholder {
+    color: $color-placeholder;
+  }
+
+  &:hover {
+    border: solid 1px $color-text;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.u-date-picker {
+  position: absolute;
+  width: 312px;
+  background-color: $color-white;
+  box-shadow: $shadow;
+}
+
+.u-date-picker-header {
+  overflow: hidden;
+  padding: 16px 16px 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+
+  > div:hover {
+    color: $color-primary;
+    cursor: pointer;
+  }
+}
+
+.u-date-picker-prev-year,
+.u-date-picker-prev-month {
+  float: left;
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+.u-date-picker-header-label {
+  display: inline;
+  padding: 0 8px;
+}
+
+.u-date-picker-next-year,
+.u-date-picker-next-month {
+  float: right;
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+.u-date-picker-body {
+  padding: 16px;
+}
+
+.u-date-table {
+  width: 280px;
+  font-size: 12px;
+}
+
+.u-date-days,
+.u-date-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    > span {
+      display: block;
+      margin: 6px auto 0;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+}
+
+.u-date-days {
+  border-bottom: solid 1px $color-border;
+}
+
+.u-date-item-current {
+  &.is-now {
+    color: $color-primary;
+  }
+
+  &.is-active {
+    color: white;
+
+    span {
+      border-radius: 50%;
+      background-color: $color-primary;
+    }
+  }
+}
+
+.u-date-item-prev,
+.u-date-item-next {
+  color: $color-text-light;
+}
+
+.u-month-table,
+.u-year-table {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.u-month-item,
+.u-year-item {
+  width: 25%;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

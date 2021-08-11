@@ -1,0 +1,17 @@
+$color-primary: #2a89ea !default;
+$color-white: #fff !default;
+$color-primary-light: lighten(#2a89ea, 40%) !default;
+$color-title: #33333c !default;
+$color-text: #666678 !default;
+$color-text-light: #878799 !default;
+$color-border: #dddddd !default;
+$color-placeholder: #cccccc !default;
+$shadow: 2px 2px 5px rgba(0,0,0,.1) !default;
+
+$transition-duration-base: .2s;
+$transition-duration-fade: .15s;
+$transition-duration-collapse: .35s;
+$transition-base:             all $transition-duration-base ease-in-out !default;
+$transition-fade:             opacity $transition-duration-fade linear !default;
+$transition-collapse:         height $transition-duration-collapse ease !default;
+$transition-collapse-width:   width $transition-duration-collapse ease !default;
