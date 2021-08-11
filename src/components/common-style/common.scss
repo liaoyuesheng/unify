@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+@import "normalize";
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: $color-title;
+}

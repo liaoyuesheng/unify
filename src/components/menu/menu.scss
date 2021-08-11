@@ -1,0 +1,110 @@
+@import "../common-style/common";
+$menu-base-padding: 16px;
+$menu-level: 5;
+
+@mixin menu-padding($diff-padding, $level, $padding: $diff-padding) {
+  .u-menu-list {
+    .u-submenu-title,
+    .u-menu-item {
+      padding-left: $padding;
+    }
+    @if $level > 1 {
+      @include menu-padding($diff-padding, $level - 1, $padding + $diff-padding);
+    }
+  }
+}
+
+.u-menu {
+  width: 240px;
+  box-shadow: $shadow;
+  text-align: left;
+}
+
+.u-menu-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+@include menu-padding($menu-base-padding, $menu-level);
+
+.u-menu-title {
+  @include flex-align-center;
+  height: 56px;
+  padding-left: $menu-base-padding;
+  border-bottom: solid 1px $color-border;
+  font-size: 18px;
+  line-height: 22px;
+  color: $color-title;
+}
+
+.u-submenu-title,
+.u-menu-item {
+  @include flex-align-center;
+  height: 48px;
+  font-size: 14px;
+  line-height: 18px;
+  color: $color-title;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}
+
+.u-submenu-title {
+  position: relative;
+
+  span {
+    flex-grow: 1;
+  }
+}
+
+.u-submenu-arrow {
+  right: $menu-base-padding;
+  width: 8px;
+  height: 4px;
+  border-top: solid 4px #ddd;
+  border-right: solid 4px transparent;
+  border-left: solid 4px transparent;
+  margin-left: 8px;
+  margin-right: 16px;
+  transition: $transition-duration-collapse;
+}
+
+.u-submenu {
+  &.is-opened {
+    > .u-submenu-title {
+      .u-submenu-arrow {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &.is-active:not(.is-opened) {
+    > .u-submenu-title {
+      .u-submenu-arrow {
+        border-top-color: $color-primary;
+      }
+    }
+  }
+}
+
+.u-collapse-enter-from,
+.u-collapse-leave-to {
+  height: 0 !important;
+}
+
+.u-collapse-enter-active,
+.u-collapse-leave-active {
+  transition: $transition-collapse;
+  overflow: hidden;
+}
+
+.u-menu-item {
+  &.is-active {
+    color: $color-primary;
+    background-color: $color-primary-light;
+  }
+}
+
